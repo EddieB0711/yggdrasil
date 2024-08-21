@@ -1,0 +1,67 @@
+﻿@using Yggdrasil.Web.Blazor.Components.Desktop.Models
+<div class="@(NavigationCss())">
+    <div class=@($"yg__toggle {MenuCss()}") @onclick="ToggleMenu">
+        <ion-icon name="menu-outline" class="yg__open"></ion-icon>
+        <ion-icon name="close-outline" class="yg__close"></ion-icon>
+    </div>
+    <ul>
+        @foreach (var menuItem in Config.MenuItems) {
+            <li class=@($"yg__list {ActiveItem(menuItem)}") @onclick="() => OnMenuItemSelected(menuItem)">
+                <a href="@menuItem.Path">
+                    <span class=@("yg__icon")>
+                        <ion-icon name="@menuItem.Icon"></ion-icon>
+                    </span>
+                    <span class="yg__title">@menuItem.Title</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+
+@code {
+
+    bool m_ToggleMenu;
+
+    [Inject]
+    public BlazorConfiguration Config { get; set; }
+
+    [Parameter]
+    public EventCallback<int> MenuSizeChanged { get; set; }
+
+    string ActiveItem(MenuItem item) {
+        return item.Selected ? "yg__active" : "";
+    }
+
+    void OnMenuItemSelected(MenuItem item) {
+        foreach (var menuItem in Config.MenuItems) {
+            menuItem.Selected = false;
+        }
+
+        item.Selected = true;
+    }
+
+    async Task ToggleMenu() {
+        m_ToggleMenu = !m_ToggleMenu;
+
+        if (m_ToggleMenu) {
+            await MenuSizeChanged.InvokeAsync(300);
+        } else {
+            await MenuSizeChanged.InvokeAsync(70);
+        }
+    }
+
+    string MenuCss() {
+        return m_ToggleMenu ? "yg__active" : "";
+    }
+
+    string NavigationCss() {
+        var css = "yg__navigation";
+
+        if (!m_ToggleMenu) {
+            css += " yg__navigation-small";
+        }
+
+        return css;
+    }
+
+}

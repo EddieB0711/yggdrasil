@@ -1,0 +1,41 @@
+﻿.yg__imports-container {
+    --yg__box-shadow: -2px -2px 4px rgba(255, 255, 255, 0.08),  4px 4px 4px rgba(0, 0, 0, 0.56);
+
+    padding: 1em;
+}
+
+.yg__imports-header {
+    align-items: center;
+    background: var(--yg__background-color);
+    border-radius: 10px;
+    box-shadow: var(--yg__box-shadow);
+    display: flex;
+    height: 5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.yg__imports-header span { color: #fff; }
+
+.yg__imports-apps {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+}
+
+.yg__imports-apps a {
+    align-items: center;
+    background: var(--yg__background-color);
+    border-radius: 10px;
+    box-shadow: var(--yg__box-shadow);
+    color: #fff;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    height: 10rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    width: 10rem;
+}

@@ -1,0 +1,25 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <DesktopNavMenu MenuSizeChanged="@MenuSizeChanged"/>
+
+    <div class="yg__main-content">
+        <main style=@($"margin-left:{m_MenuSize + 20}px;margin-right:20px;")>
+            @Body
+        </main>
+    </div>
+</div>
+
+@code {
+
+    int m_MenuSize = 70;
+
+    void MenuSizeChanged(int size) {
+        m_MenuSize = size;
+    }
+
+    string MainCss() {
+        return $"left:{m_MenuSize}";
+    }
+
+}

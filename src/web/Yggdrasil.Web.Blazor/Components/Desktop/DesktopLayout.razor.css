@@ -1,0 +1,11 @@
+﻿.page { height: 100vh; }
+
+main {
+    grid-column: 2;
+    transition: margin-left 0.5s;
+}
+
+.yg__main-content {
+    display: grid;
+    grid-template-columns: 10rem auto 10rem;
+}

@@ -1,0 +1,42 @@
+﻿@page "/imports"
+
+<PageTitle>Imports</PageTitle>
+
+<div class="yg__imports-container">
+    <div class="yg__imports-header">
+        <span>Imports</span>
+    </div>
+
+    <div class="yg__imports-apps">
+        @foreach (var app in Apps) {
+            <a href="@app.Path">
+                <div class="yg__import-app">
+                    <span>@app.Title</span>
+                </div>
+            </a>
+        }
+    </div>
+</div>
+
+
+@code {
+
+    class ImportApp {
+        public string Title { get; set; }
+        public string Path { get; set; }
+    }
+
+    List<ImportApp> Apps { get; } = new();
+
+    protected override void OnInitialized() {
+        Apps.Add(new() { Title = "CRS Import", Path = "/imports/crs" });
+        Apps.Add(new() { Title = "Third Party Import", Path = "#" });
+        Apps.Add(new() { Title = "Talon Import", Path = "#" });
+        Apps.Add(new() { Title = "Dealerspike Import", Path = "#" });
+        Apps.Add(new() { Title = "Lightspeed Import", Path = "#" });
+        Apps.Add(new() { Title = "SpinCar Import", Path = "#" });
+
+        base.OnInitialized();
+    }
+
+}

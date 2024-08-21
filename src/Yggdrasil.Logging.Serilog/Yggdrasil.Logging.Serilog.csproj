@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <BaseOutputPath>../../artifacts</BaseOutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Serilog.Settings.Configuration" Version="3.4.0"/>
+        <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0"/>
+        <PackageReference Include="Serilog.Sinks.Trace" Version="3.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Yggdrasil.Host.Abstractions\Yggdrasil.Host.Abstractions.csproj"/>
+        <ProjectReference Include="..\Yggdrasil.Logging.Abstractions\Yggdrasil.Logging.Abstractions.csproj"/>
+    </ItemGroup>
+
+</Project>

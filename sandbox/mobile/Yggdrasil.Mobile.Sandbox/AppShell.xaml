@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Shell
+    x:Class="Yggdrasil.Mobile.Sandbox.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Yggdrasil.Mobile.Sandbox"
+    xmlns:seller="clr-namespace:Yggdrasil.Mobile.Seller.Views;assembly=Yggdrasil.Mobile.Seller"
+    FlyoutBehavior="Flyout"
+    FlyoutIcon="flyout_icon.png">
+
+    <Shell.FlyoutHeader>
+        <Border
+            BackgroundColor="#ddd" StrokeThickness="0">
+            <Grid ColumnDefinitions="Auto, *" Padding="25" ColumnSpacing="20">
+                <Image
+                    Grid.Column="0"
+                    Source="cannabis_leaf.png"
+                    Aspect="AspectFill"
+                    HeightRequest="50"
+                    WidthRequest="50" />
+
+                <Label
+                    Grid.Column="1"
+                    Text="Oklahoma Standard"
+                    VerticalTextAlignment="Center"
+                    FontSize="20"
+                    FontAttributes="Bold" />
+            </Grid>
+        </Border>
+    </Shell.FlyoutHeader>
+
+    <ShellContent
+        Title="Home"
+        Icon="home.png"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="Seller"
+        Icon="store.png"
+        ContentTemplate="{DataTemplate seller:SellerView}"
+        Route="SellerView" />
+
+    <ShellContent
+        Title="Buyer"
+        Icon="cart.png"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="BuyerPage" />
+
+    <ShellContent
+        Title="Messages"
+        Icon="messages.png"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MessagesPage" />
+</Shell>

@@ -1,0 +1,37 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+service Vehicles {
+    rpc AddTrims (AddTrimsRequest) returns (google.protobuf.Empty);
+
+    rpc AddVinPatterns (AddVinPatternsRequest) returns (google.protobuf.Empty);
+}
+
+message Trim {
+    string product_type_code = 1;
+    int32 make_id = 2;
+    string make_name = 3;
+    int32 model_id = 4;
+    int32 model_year = 5;
+    string model_name = 6;
+    int32 trim_id = 7;
+    string trim_name = 8;
+    string trim_display_name = 9;
+    double trim_msrp = 10;
+    bytes trim_photo_file_hash = 11;
+    string trim_photo_file_path = 12;
+}
+
+message VinPattern {
+    int32 trim_id = 1;
+    string pattern = 2;
+}
+
+message AddTrimsRequest {
+    repeated Trim trims = 1;
+}
+
+message AddVinPatternsRequest {
+    repeated VinPattern vin_patterns = 1;
+}

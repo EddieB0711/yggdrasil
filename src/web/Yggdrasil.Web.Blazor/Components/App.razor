@@ -1,0 +1,19 @@
+﻿<Router AppAssembly="@typeof(App).Assembly" AdditionalAssemblies="@BlazorConfig.Assemblies">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@BlazorConfig.MainLayout"/>
+        <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
+    </Found>
+    <NotFound>
+        <PageTitle>Not found</PageTitle>
+        <LayoutView Layout="@BlazorConfig.MainLayout">
+            <p role="alert">Sorry, there's nothing at this address.</p>
+        </LayoutView>
+    </NotFound>
+</Router>
+
+@code {
+
+    [Inject]
+    BlazorConfiguration BlazorConfig { get; set; }
+
+}
